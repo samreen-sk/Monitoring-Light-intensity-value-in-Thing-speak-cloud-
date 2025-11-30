@@ -1,10 +1,10 @@
-# Monitoring-soil-moisture-value-in-Thing-speak-cloud and Uploading soil moisture sensor data in Thing Speak cloud
+# EXP-4 Monitoring-Light-intensity-value-in-Thing-speak-cloud and Uploading LDR sensor data in Thing Speak cloud
 
 # AIM:
-To monitor the soil moisture value in the Thing speak cloud using soil moisture sensor and ESP32 controller.
+To monitor the Light-intensity value in the Thing speak cloud using LDR sensor and ESP32 controller.
 # Apparatus required:
 ESP32 Controller<br>
-Soil moisture Sensor<br>
+LDR <br>
 Power supply<br>
 Connecting wires<br>
 Bread board<br>
@@ -32,41 +32,47 @@ Step5 Copy the Channel ID and API key in the thingspeak and update in the progra
 Step6 Execute your program to send the sensor value to ThingSpeak<br>
 Step7 Check your ThingSpeak channel to verify that the sensor value has been updated<br>
 # THEORY:
-## Soil moisture sensor:
-The soil moisture sensor is one kind of sensor used to gauge the volumetric content of water within the soil. As the straight gravimetric dimension of soil moisture needs eliminating, drying, as well as sample weighting. These sensors measure the volumetric water content not directly with the help of some other rules of soil like dielectric constant, electrical resistance, otherwise interaction with neutrons, and replacement of the moisture content.
-The relation among the calculated property as well as moisture of soil should be adjusted & may change based on ecological factors like temperature, type of soil, otherwise electric conductivity. The microwave emission which is reflected can be influenced by the moisture of soil as well as mainly used in agriculture and remote sensing within hydrology
-## Soil Moisture Sensor Pin Configuration
-The FC-28 soil moisture sensor includes 4-pins
-•	VCC pin is used for power<br>
-•	A0 pin is an analog output<br>
-•	D0 pin is a digital output<br>
-•	GND pin is a Ground<br>
-![image](https://github.com/user-attachments/assets/7fd3c618-7d11-4186-afc7-7ab81ec9d326)
+## What is Light Dependent Resistor?
+An electronic component like LDR or light-dependent resistor is responsive to light. Once light rays drop on it, then immediately the resistance will be changed. The resistance values of an LDR may change over several orders of magnitude. The resistance value will be dropped when the light level increases.
+The resistance values of LDR in darkness are several megaohms whereas in bright light it will be dropped to hundred ohms. So due to this change in resistance, these resistors are extremely used in different applications. The LDR sensitivity also changes through the incident light’s wavelength.
+The designing of LDRs can be done by using semiconductor materials to allow their light-sensitive properties. The famous material used in this resistor is CdS (cadmium sulfide), even though the utilization of this material is currently restricted in European countries due to some environmental issues while using this material. Likewise, CdSe (cadmium selenide) is also restricted and additional materials that can be employed mainly include PbS (lead sulfide), InS ( indium antimonide).
+Even though for these resistors, a semiconductor material is used, because they are simply passive devices and they do not have a PN-junction. This detaches them from other LDRs such as phototransistors & photodiodes.
+![image](https://github.com/user-attachments/assets/40d9f50a-c34a-4b6f-bbd0-d80be0cd418e)
+## LDR Symbol
+In electronic circuits, the LDR symbol is used that mainly depends on the resistor symbol; however, it illustrates the light rays in the arrows form. In this way, it follows the same principle which is used for phototransistor & photodiode circuit symbols wherever arrows are utilized to demonstrate the light dropping on these types of components. The LDR circuit symbols are shown below.
+![image](https://github.com/user-attachments/assets/b7cf98ab-1f73-4c68-94b2-02d6209eb5f0)
+## Construction of an LDR
+The construction of an LDR includes a light-sensitive material that is placed on an insulating substrate like ceramic. The material is placed in a zigzag shape in order to get the required power rating and resistance. The area of zigzag separates the metal-placed areas into two regions.
 
-This module also includes a potentiometer that will fix the threshold value, & the value can be evaluated by the comparator-LM393. The LED will turn on/off based on the threshold value.
-## Working Principle
-This sensor mainly utilizes capacitance to gauge the water content of the soil (dielectric permittivity). The working of this sensor can be done by inserting this sensor into the earth and the status of the water content in the soil can be reported in the form of a percent.
-This sensor makes it perfect to execute experiments within science courses like environmental science, agricultural science, biology, soil science, botany, and horticulture.
-## Specifications
-The specification of this sensor includes the following.
-•	The required voltage for working is 5V<br>
-•	The required current for working is <20mA<br>
-•	Type of interface is analog<br>
-•	The required working temperature of this sensor is 10°C~30°C<br>
-## Soil Moisture Sensor Applications
-The applications of moisture sensor include the following.
-•	Agriculture<br>
-•	Landscape irrigation<br>
-•	Research<br>
-•	Simple sensors for gardeners<br>
+![image](https://github.com/user-attachments/assets/aac89ad2-4eb2-4b4e-9e1f-f1c10f5552c7)
+
+
+Where the Ohmic contacts are made either on the sides of the area. The resistances of the contacts must be as less as possible to make sure that the resistance, mainly varies due to the light effect only. The use of lead & cadmium materials is avoided as they are injurious to the environment.
+## Working Principle of Light Dependent Resistor
+The working principle of an LDR is photoconductivity, which is nothing but an optical phenomenon. When the light is absorbed by the material then the conductivity of the material enhances. When the light falls on the LDR, then the electrons in the valence band of the material are eager to the conduction band. But, the photons in the incident light must have energy superior to the bandgap of the material to make the electrons jump from one band to another band (valance to conduction).
+Hence, when light having ample energy, more electrons are excited to the conduction band which grades in a large number of charge carriers. When the effect of this process and the flow of the current starts flowing more, the resistance of the device decreases.
+## Characteristics of LDR
+The light-dependent resistor is very responsive to light. When the light is stronger, then the resistance is lower which means, when the light intensity increases then the value of resistance for the LDR will be decreased drastically to below 1K.
+
+![image](https://github.com/user-attachments/assets/06b8eeb0-a08f-4b16-9d99-13f3913e3e90)
+
+
+When the light drops on LDR, the resistance will be decreased and when the resistor is placed in the dark then the resistance will be increased which is called dark resistance. If any device absorbs light then its resistance will be reduced radically. If a stable voltage is given to it, the light intensity will be increased & the flow of current starts increasing. So, the following diagram represents the characteristics between resistance & illumination for a specific LDR.
+
+LDRs are not linear devices and their sensitivity changes through the light’s wavelength which drops on them. Some kinds of photocells are not at all sensitive to a specific range of wavelengths because it depends on the used material.
+
+Once light rays fall on a photocell, the resistance will be changed in 8 ms to 12, while it uses few more seconds to rise the resistance back again to its early value once the light is removed. So this is known as a recovery rate of resistance. In audio compressors, this property is applicable.
+## Applications of LDR
+Light-dependent resistors are simple and low-cost devices. These devices are used where there is a need to sense the presence and absence of light is necessary. These resistors are used as light sensors and the applications of LDR mainly include alarm clocks, street lights, light intensity meters, burglar alarm circuits. For a better understanding of this concept, here we have explained one project namely; power conserving of intensity controlled street lights using LDR.
 ## What is IoT?
-Internet of Things (IoT) describes an emerging trend where a large number of embedded devices (things) are connected to the Internet. These connected devices communicate with people and other things and often provide sensor data to cloud storage and cloud computing resources where the data is processed and analyzed to gain important insights. Cheap cloud computing power and increased device connectivity is enabling this trend.IoT solutions are built for many vertical applications such as environmental monitoring and control, health monitoring, vehicle fleet monitoring, industrial monitoring and control, and home automation
-![image](https://github.com/user-attachments/assets/9b5b1576-a121-4045-b578-2cf5cc7fa62b)
+![image](https://github.com/user-attachments/assets/a2ff2d80-00d3-4b33-963b-a24ded0361ca)
 
-Sending Data to Cloud with ESP32 and ThingSpeak
+Internet of Things (IoT) describes an emerging trend where a large number of embedded devices (things) are connected to the Internet. These connected devices communicate with people and other things and often provide sensor data to cloud storage and cloud computing resources where the data is processed and analyzed to gain important insights. Cheap cloud computing power and increased device connectivity is enabling this trend.IoT solutions are built for many vertical applications such as environmental monitoring and control, health monitoring, vehicle fleet monitoring, industrial monitoring and control, and home automation
+ 
+## Sending Data to Cloud with ESP32 and ThingSpeak
 ThingSpeak is an Internet of Things (IoT) analytics platform that allows users to collect, analyze, and visualize data from sensors or devices connected to the Internet. It is a cloud-based platform that provides APIs for storing and retrieving data, as well as tools for data analysis and visualization.The Internet of Things ( or IoT) is a network of interconnected computing devices such as digital machines, automobiles with built-in sensors, or humans with unique identifiers and the ability to communicate data over a network without human intervention.Hello readers, I hope you all are doing great. In this tutorial, we will learn how to send sensor readings from ESP32 to the ThingSpeak cloud. Here we will use the ESP32’s internal sensor like hall-effect sensor and temperature sensor to observe the data and then will share that data cloud.
 ## What is ThingSpeak?
-![image](https://github.com/user-attachments/assets/d7ad629b-944c-47c3-a949-303a3eb32bfc)
+ ![image](https://github.com/user-attachments/assets/f9e7c379-60ea-4f39-b693-3e53e91452b9)
 
 It is an open data platform for IoT (Internet of Things). ThingSpeak is a web service operated by MathWorks where we can send sensor readings/data to the cloud. We can also visualize and act on the data (calculate the data) posted by the devices to ThingSpeak. The data can be stored in either private or public channels.ThingSpeak is frequently used for internet of things prototyping and proof of concept systems that require analytics.
 ## Features Of ThingSpeak
@@ -77,73 +83,79 @@ Easily configure devices to send data to ThingSpeak using popular IoT protocols.
 Visualize your sensor data in real-time.<br>
 Aggregate data on-demand from third-party sources.<br>
 Use the power of MATLAB to make sense of your IoT data.<br>
-Run your IoT analytics automatically based on schedules or events<br>.
+Run your IoT analytics automatically based on schedules or events.<br>
 Prototype and build IoT systems without setting up servers or developing web software.<br>
+ ![image](https://github.com/user-attachments/assets/6ee6398f-15b8-4bec-8183-90ee362bd649)
 
-![image](https://github.com/user-attachments/assets/5beaf86c-0d5d-4b99-9c22-bb0351f487ab)
-
+ 
 # PROGRAM:
-```
+
+```c++
 #include <WiFi.h>
+
 #include "ThingSpeak.h" // always include thingspeak header file after other header files and custom macros
-#define Soil_Moisture 34
-char ssid[] = "Galaxy M219715";   // your network SSID (name) 
-char pass[] = "rbyh1302";   // your network password
+#define ldr_pin 34
+char ssid[] = "Aakash";   // your network SSID (name) 
+char pass[] = "zxcvbnm";   // your network password
 int keyIndex = 0;            // your network key Index number (needed only for WEP)
 WiFiClient  client;
 
-unsigned long myChannelNumber = 2929260;
-const int ChannelField = 1; 
-const char * myWriteAPIKey = "9XBHFBKTYDDETXT3";
+unsigned long myChannelNumber =  2487109;
+const int ChannelField = 1;
+const char * myWriteAPIKey = "4TL0XDHT9DBX1YD4";
 
-const int airValue = 4095;      // Analog value when the sensor is in dry air
-const int waterValue = 0;
-int percentage =0;
-void setup() {
+int ldrValue = 0;       // Variable to store raw analog value
+int lightPercentage = 0;
+
+const int darkValue = 4095; // Analog value in complete darkness
+const int brightValue = 0;  
+
+
+void setup() 
+{
   Serial.begin(115200);  //Initialize serial
-  pinMode(Soil_Moisture, INPUT);
+  pinMode(ldr_pin, INPUT);
   WiFi.mode(WIFI_STA);   
   ThingSpeak.begin(client);  // Initialize ThingSpeak
 }
 
-void loop()
+void loop() 
 {
- if (WiFi.status() != WL_CONNECTED)
-  {
+  // Connect or reconnect to WiFi
+  if(WiFi.status() != WL_CONNECTED)
+{
     Serial.print("Attempting to connect to SSID: ");
-    Serial.println(ssid);
-    while (WiFi.status() != WL_CONNECTED)
+    
+    while(WiFi.status() != WL_CONNECTED)
     {
-      WiFi.begin(ssid, pass);
+      WiFi.begin(ssid, pass); 
       Serial.print(".");
-      delay(5000);
-    }
+      delay(5000);     
+    } 
     Serial.println("\nConnected.");
   }
 
- /* Soil MoistureSensor */
-  int Soil_Value = analogRead(Soil_Moisture);
-  percentage = map(Soil_Value, airValue, waterValue, 0, 100);
-
-  // Ensure the percentage stays in the 0-100 range
-  percentage = constrain(percentage, 0, 100);
-  Serial.println("Soil moisture percentage");
-  Serial.println(percentage);
-  ThingSpeak.writeField(myChannelNumber, ChannelField, percentage, myWriteAPIKey);
+  /* LDR sensor */
+  int ldrValue= analogRead(ldr_pin);  
   
-   delay(5000); // Wait 20 seconds to update the channel again
+  lightPercentage = map(ldrValue, darkValue, brightValue, 0, 100);
+
+  // Constrain the percentage to 0-100 range
+  lightPercentage = constrain(lightPercentage, 0, 100);
+  Serial.println("Intensity="); //print on serial monitor using ""
+  Serial.println(lightPercentage);    
+  Serial.println("%");     //display output on serial monitor
+  
+  ThingSpeak.writeField(myChannelNumber, ChannelField, lightPercentage, myWriteAPIKey);
+  delay(5000); 
 }
 ```
 # CIRCUIT DIAGRAM:
-![image](https://github.com/user-attachments/assets/a29ca0f6-b3a9-4100-809e-4b6128cd816e)
+![WhatsApp Image 2024-11-19 at 14 59 45_b82ca781](https://github.com/user-attachments/assets/611a9b1d-58e6-40b8-be46-b2d5979007be)
 
 # OUTPUT:
-## Thing-speak Cloud 
-![SOIL MOSITURE SIVA](https://github.com/user-attachments/assets/48ba48ef-baed-4039-8dae-8520f5a02f26)
-
-## Soil Mositure Moisture Testing
-![WhatsApp Image 2025-04-22 at 14 36 43_190a92bc](https://github.com/user-attachments/assets/5e15f2b7-dac3-4d7a-b302-3964e471e372)
-
+![WhatsApp Image 2024-11-18 at 06 09 18_00245ba5](https://github.com/user-attachments/assets/3825e1ea-bb15-4530-9c80-3017fe11933d)
 
 # RESULT:
-Thus the soil moisture values are updated in the Thing speak cloud using ESP32 controller.
+
+Thus the light intensity values are updated in the Thing speak cloud using ESP32 controller.
